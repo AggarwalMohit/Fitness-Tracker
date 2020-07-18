@@ -1,0 +1,37 @@
+<section fxLayout fxLayoutAlign="center center">
+    <form (ngSubmit)="onClick(f)" #f="ngForm">   
+    <mat-card fxFlex="400px">
+            <mat-card-title>
+                Time to start workout!
+            </mat-card-title>
+            <mat-card-content fxLayout="column" fxLayoutAlign="space-between space-between">
+              <mat-form-field fxLayout fxLayoutAlign="space-between space-between" *ngIf="!exerciseselected" >
+                <mat-label>Choose your workout</mat-label>
+                  <mat-select ngModel name="workout" required>
+                     <div>
+                        <mat-option *ngFor="let wrkt of exercise" [value]="wrkt.name" (click)="onChange(wrkt.name)">
+                              {{wrkt.name}}
+                        </mat-option>
+                     </div>
+                </mat-select>
+
+            </mat-form-field>
+             <!-- <span (change)="onChange($event)"></span> -->
+            <mat-form-field fxLayout fxLayoutAlign="space-between space-between" *ngIf="!exerciseselected">
+                <mat-label>Choose your exercise</mat-label>
+                <mat-select ngModel [ngModelOptions]="{standalone: false}" name="exercise" required>
+                       <mat-option *ngFor="let ex of reference" [value]="ex.name"  >
+                                {{ex.name}}
+                       </mat-option>
+                </mat-select>    
+            </mat-form-field>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" type="submit" [disabled]="f.invalid">
+                    Start Excercise !
+                </button>
+            </mat-card-actions>
+        </mat-card>
+    </form>
+</section>
+

@@ -1,0 +1,23 @@
+<mat-toolbar color="primary">   
+        <div>
+            <button (click)="sidenavToggle()"> 
+                <mat-icon>menu</mat-icon>
+            </button>
+        </div>
+        <div>Logo</div>
+        <div fxFlex fxLayoutAlign="end" fxHide.lt-md="true">
+            <ul fxLayout="row" fxLayoutGap="10px" class="navigation-items">
+            
+                <li *ngIf="isAuth"><a routerLink="training" >Training</a></li>
+                       
+                <li *ngIf="!isAuth"><a routerLink="auth/signin">SignIn</a></li>
+                        
+                <li *ngIf="!isAuth"><a routerLink="auth/login">Login</a></li>
+                        
+                <li *ngIf="isAuth"><a (click)="onLogout()">LogOut</a></li>
+            </ul>    
+        </div>
+    </mat-toolbar>
+    <main>
+        <router-outlet></router-outlet>
+    </main>

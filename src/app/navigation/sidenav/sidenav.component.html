@@ -1,0 +1,41 @@
+<mat-nav-list>
+        
+        <span *ngIf="isAuth">
+            <a mat-list-item 
+            routerLink="training" 
+            color="warn" 
+            (click)="sideToggle()">
+                <mat-icon>fitness_center</mat-icon>
+                    <span class="listItemStyles">Training</span>
+            </a>
+        </span>
+
+        <span *ngIf="!isAuth">
+            <a mat-list-item 
+            routerLink="auth/signin" 
+            color="warn" 
+            (click)="sideToggle()">
+            <mat-icon>face</mat-icon>
+            <span class="listItemStyles">Sign in</span>
+            </a>
+        </span>
+
+        <span *ngIf="!isAuth">
+            <a mat-list-item 
+            routerLink="auth/login" 
+            color="warn" 
+            (click)="sideToggle()">
+            <mat-icon>login</mat-icon>
+            <span class="listItemStyles">Login</span>
+            </a>
+        </span>
+        
+        <mat-list-item *ngIf="isAuth">
+            <button mat-icon-button (click)="sideToggleButton()">
+                <mat-icon>eject</mat-icon>
+                <span class="listItemStyles ">Logout</span>
+            </button>
+      
+        </mat-list-item>
+
+</mat-nav-list>

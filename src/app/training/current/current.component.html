@@ -1,0 +1,14 @@
+<section fxLayout fxLayoutAlign="center center" class="spinnerclass">
+    <mat-card fxFlex="400px">
+        <mat-card-title fxLayout="column" fxLayoutAlign="center center">
+                    Exercise name
+        </mat-card-title>
+      <mat-card-content fxLayout="column" fxLayoutAlign="center center">
+            <mat-progress-spinner mode="determinate" [value]="progress"></mat-progress-spinner>
+                    <h1>{{progress}}</h1>
+                    <p>one more rep!</p>
+                    <button mat-raised-button (click)="onStop()" color="accent">Stop</button>
+                    
+     </mat-card-content>
+    </mat-card>
+</section>
